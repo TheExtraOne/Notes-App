@@ -1,4 +1,4 @@
-import classes from "./high-lighted-quote.module.css";
+import classes from "./hight-lighted-quote.module.css";
 
 const HighlightedQuote = (props) => {
   return (
