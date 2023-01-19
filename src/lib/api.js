@@ -56,14 +56,17 @@ export async function addQuote(quoteData) {
   return null;
 }
 
-export async function addComment(commentData, quoteId) {
-  const response = await fetch(`${FIREBASE_DOMAIN}/comments/${quoteId}.json`, {
-    method: "POST",
-    body: JSON.stringify(commentData),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+export async function addComment(dataReq) {
+  const response = await fetch(
+    `${FIREBASE_DOMAIN}/comments/${dataReq.quoteId}.json`,
+    {
+      method: "POST",
+      body: JSON.stringify(dataReq.commentData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
   const data = await response.json();
 
   if (!response.ok) {
