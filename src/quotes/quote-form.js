@@ -1,5 +1,5 @@
-import { useRef, useState } from "react";
-import { Prompt } from "react-router-dom";
+import { useRef } from "react";
+//import { Prompt } from "react-router-dom";
 
 import Card from "../UI/card";
 import LoadingSpinner from "../UI/loading";
@@ -8,8 +8,6 @@ import classes from "./quote-form.module.css";
 const QuoteForm = (props) => {
   const authorInputRef = useRef();
   const textInputRef = useRef();
-
-  const [isEntering, setIsEntering] = useState(false);
 
   const submitFormHandler = (event) => {
     event.preventDefault();
@@ -22,28 +20,17 @@ const QuoteForm = (props) => {
     props.onAddQuote({ author: enteredAuthor, text: enteredText });
   };
 
-  const formFocusedHandler = () => {
-    setIsEntering(true);
-  };
-
-  const finishEnteringHandler = () => {
-    setIsEntering(false);
-  };
-
   return (
     <>
+      {/* It's not possible to use Prompt in react-router 6 :(
       <Prompt
         when={isEntering}
         message={(location) =>
           "Are you sure you want to leave? All your entered data will be lost!"
         }
-      />
+      /> */}
       <Card>
-        <form
-          className={classes.form}
-          onSubmit={submitFormHandler}
-          onFocus={formFocusedHandler}
-        >
+        <form className={classes.form} onSubmit={submitFormHandler}>
           {props.isLoading && (
             <div className={classes.loading}>
               <LoadingSpinner />
@@ -59,9 +46,7 @@ const QuoteForm = (props) => {
             <textarea id="text" rows="5" ref={textInputRef}></textarea>
           </div>
           <div className={classes.actions}>
-            <button className="btn" onClick={finishEnteringHandler}>
-              Add Quote
-            </button>
+            <button className="btn">Add Quote</button>
           </div>
         </form>
       </Card>
