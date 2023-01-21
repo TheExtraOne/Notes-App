@@ -1,6 +1,7 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and inspired by Maximilian Schwarzmüller course. 'Awersome Quotes' is a Multi-Page SPA with React Router, powered by firebase. I used react router 6, but left comments of alternative for 5th version. I may find dinamic routes, nested routes, redirecting user and extracting params.
+There is nothing to be proud of, as in case of this App I only repeat after lector.
 
 ## Available Scripts
 
